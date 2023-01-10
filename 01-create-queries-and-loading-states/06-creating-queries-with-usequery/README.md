@@ -1,5 +1,7 @@
 # Creating Queries with useQuery
 
+`blog-em` 프로젝트에 `useQuery`를 사용하여 blog data를 출력하는 방법이다. 최상위 `App.jsx` component에 `queryClient` instance를 만들고 `QueryClientProvider`를 생성해준다.
+
 ```js
 import { Posts } from "./Posts";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -22,6 +24,8 @@ function App() {
 
 export default App;
 ```
+
+`Posts.jsx` component에서 blog data를 가져오기 위해 `useQuery`를 사용한다. 첫번째 인자에는 쿼리의 이름을 정해주는 `query key`를 할당하고 두번째 인자로 쿼리 함수를 정의한다. 쿼리 함수는 데이터를 가져오는 함수로 `fetchPosts`를 사용하면 되며 비동기 함수를 불러야 한다.
 
 ```js
 import { useState } from "react";
@@ -73,6 +77,8 @@ export function Posts() {
   );
 }
 ```
+
+## ERROR: Cannot read properties of undefined (reading 'map')
 
 > <pre>
 > Uncaught TypeError: Cannot read properties of undefined (reading 'map')
