@@ -2,6 +2,8 @@
 
 `blog-em` 프로젝트에 `useQuery`를 사용하여 blog data를 출력하는 방법이다. 최상위 `App.jsx` component에 `queryClient` instance를 만들고 `QueryClientProvider`를 생성해준다.
 
+## Code Example
+
 ```js
 import { Posts } from "./Posts";
 import { QueryClient, QueryClientProvider } from "react-query";
