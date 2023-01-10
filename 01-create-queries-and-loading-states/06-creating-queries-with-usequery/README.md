@@ -93,4 +93,4 @@ if (!data) return <div />;
 
 ## Reference
 
-- [GitHub: commits on blog-em project](https://github.com/paolochang/udemy-react-query/pull/1/commits/d61cfa24a667cf27a55d614852f60c6edc5645e2)
+- [GitHub: commits on blog-em project](https://github.com/paolochang/udemy-react-query/commit/d61cfa24a667cf27a55d614852f60c6edc5645e2)
