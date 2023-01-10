@@ -17,3 +17,22 @@
 $ cd base-blog-em
 $ npm install
 ```
+
+## Getting Started
+
+```bash
+$ npm install react-query
+```
+
+- Create query client
+
+  - Client that manages queries and cache
+
+- Apply `QueryProvider`
+
+  - Provides cache and client config to children
+  - Takes query client as the value
+
+- Run `useQuery`
+
+  - Hook that queries the server
