@@ -10,7 +10,7 @@
 
 ### [Creating Queries with useQuery](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/06-creating-queries-with-usequery)
 
-### Handling Loading and Error States
+### [Handling Loading and Error States](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/07-handling-loading-and-error-states)
 
 ### React Query Dev Tools
 
