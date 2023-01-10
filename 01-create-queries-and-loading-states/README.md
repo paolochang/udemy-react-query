@@ -1,15 +1,17 @@
 # 01. Creating Queries and Loading / Error states
 
-## Introduction to React Query
+### [Introduction to React Query](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/01-introduction-to-react-query)
 
-## Introduction to this Course
+### [Introduction to this Course](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/02-Introduction-to-this-course)
 
-## First project: Blog-em Ipsum
+### [IMPORTANT: React Query version 3 vs. version 4](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/03-important-react-query-ver3-vs-ver4)
 
-## Creating Queries with useQuery
+### [First project: Blog-em Ipsum](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/04-first-project-blog-em-ipsum)
 
-## Handling Loading and Error States
+### [Creating Queries with useQuery](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/06-creating-queries-with-usequery)
 
-## React Query Dev Tools
+### Handling Loading and Error States
 
-## staleTime vs cacheTime
+### React Query Dev Tools
+
+### staleTime vs cacheTime
