@@ -12,6 +12,6 @@
 
 ### [Handling Loading and Error States](https://github.com/paolochang/udemy-react-query/tree/01-create-queries/01-create-queries-and-loading-states/07-handling-loading-and-error-states)
 
-### React Query Dev Tools
+### [React Query DevTools](https://github.com/paolochang/udemy-react-query/tree/main/01-create-queries-and-loading-states/08-react-query-dev-tools)
 
-### staleTime vs cacheTime
+### [staleTime vs cacheTime](https://github.com/paolochang/udemy-react-query/tree/main/01-create-queries-and-loading-states/09-staleTime-vs-cacheTime)
