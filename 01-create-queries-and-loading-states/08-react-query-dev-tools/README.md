@@ -1,4 +1,4 @@
-# React Query Dev Tools
+# React Query DevTools
 
 개발자 도구는 개발중인 모든 쿼리의 상태를 표시해준다.
 
