@@ -4,21 +4,32 @@ import { PostDetail } from "./PostDetail";
 
 const maxPostPage = 10;
 
-async function fetchPosts() {
+async function fetchPosts(page) {
   const response = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=10&_page=0"
+    `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`
   );
   return response.json();
 }
 
 export function Posts() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  // replace with useQuery
-  const { data, isError, error, isLoading } = useQuery("posts", fetchPosts, {
-    staleTime: 2000,
-  });
+  const { data, isError, error, isLoading } = useQuery(
+    ["posts", currentPage],
+    () => fetchPosts(currentPage),
+    {
+      staleTime: 2000,
+    }
+  );
+
+  const handlePagination = (event) => {
+    if (event.target.innerText === "Previous page") {
+      setCurrentPage((prev) => prev - 1);
+    } else if (event.target.innerText === "Next page") {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
 
   if (isLoading) return <h3>Loading...</h3>;
   if (isError)
@@ -43,11 +54,14 @@ export function Posts() {
         ))}
       </ul>
       <div className="pages">
-        <button disabled onClick={() => {}}>
+        <button onClick={handlePagination} disabled={currentPage <= 1}>
           Previous page
         </button>
-        <span>Page {currentPage + 1}</span>
-        <button disabled onClick={() => {}}>
+        <span>Page {currentPage}</span>
+        <button
+          onClick={handlePagination}
+          disabled={currentPage >= maxPostPage}
+        >
           Next page
         </button>
       </div>
