@@ -42,3 +42,7 @@
     - When key changes, create a new query
 
   - Query function values should be part of the key
+
+## Reference
+
+- [GitHub: code exercise](https://github.com/paolochang/udemy-react-query/commit/61e24043509fbafca25b763edee5823af4574084)
