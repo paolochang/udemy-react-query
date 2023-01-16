@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 
 async function fetchComments(postId) {
@@ -15,15 +16,22 @@ async function deletePost(postId) {
   return response.json();
 }
 
-async function updatePost(postId) {
+async function updatePost({ postId, title }) {
+  console.log("updatePost / data / title =", title);
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/postId/${postId}`,
-    { method: "PATCH", data: { title: "REACT QUERY FOREVER!!!!" } }
+    { method: "PATCH", data: { title } }
   );
   return response.json();
 }
 
 export function PostDetail({ post }) {
+  const [title, setTitle] = useState(post.title);
+
+  useEffect(() => {
+    setTitle(post.title);
+  }, [post]);
+
   // replace with useQuery
   const { data, isLoading, error, isError } = useQuery(
     ["comments", post.id],
@@ -31,6 +39,10 @@ export function PostDetail({ post }) {
   );
 
   const deleteMutation = useMutation((postId) => deletePost(postId));
+
+  const updateMutation = useMutation(({ postId, title }) =>
+    updatePost({ postId, title })
+  );
 
   if (isLoading) {
     return <h3>Comments are loading...</h3>;
@@ -58,7 +70,23 @@ export function PostDetail({ post }) {
       {deleteMutation.isSuccess && (
         <p style={{ color: "green" }}>Post has (not) been deleted</p>
       )}
-      <button>Update title</button>
+      <input
+        type="text"
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
+      />
+      <button onClick={() => updateMutation.mutate({ postId: post.id, title })}>
+        Update title
+      </button>
+      {updateMutation.isError && (
+        <p style={{ color: "red" }}>Error on updating the post</p>
+      )}
+      {updateMutation.isLoading && (
+        <p style={{ color: "purple" }}>Updating post in process</p>
+      )}
+      {updateMutation.isSuccess && (
+        <p style={{ color: "green" }}>Post has (not) been updated to {title}</p>
+      )}
       <p>{post.body}</p>
       <h4>Comments</h4>
       {data.map((comment) => (
