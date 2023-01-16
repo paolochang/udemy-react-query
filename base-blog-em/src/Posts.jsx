@@ -26,14 +26,16 @@ export function Posts() {
     }
   }, [queryClient, currentPage]);
 
-  const { data, isError, error, isLoading } = useQuery(
-    ["posts", currentPage],
-    () => fetchPosts(currentPage),
-    {
-      staleTime: 2000,
-      keepPreviousData: true,
-    }
-  );
+  const {
+    data,
+    isError,
+    error,
+    isLoading,
+    // isFetching
+  } = useQuery(["posts", currentPage], () => fetchPosts(currentPage), {
+    staleTime: 2000,
+    keepPreviousData: true,
+  });
 
   const handlePagination = (event) => {
     if (event.target.innerText === "Previous page") {
@@ -43,7 +45,14 @@ export function Posts() {
     }
   };
 
-  if (isLoading) return <h3>Loading...</h3>;
+  // * true when () => fetchPosts() is running
+  // if (isFetching) {
+  //   return <h3>Fetching in progress...</h3>;
+  // }
+  // * only true when cache is not exist
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
   if (isError)
     return (
       <>
