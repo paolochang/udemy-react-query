@@ -47,3 +47,7 @@ export function PostDetail({ post }) {
   );
 
 ```
+
+## Reference
+
+- [GitHub: code exercise](https://github.com/paolochang/udemy-react-query/commit/c46d929a8d9f4bdc7613889c66f0307fffcafd6c)
