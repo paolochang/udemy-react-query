@@ -7,3 +7,7 @@
 - `isLoading`
 
   - no cached data, plus `isFecthing`
+
+## Reference
+
+- [GitHub: commits for example](https://github.com/paolochang/udemy-react-query/pull/2/commits/f34d2d2c69733dde41d624d8adef74179638724b)
