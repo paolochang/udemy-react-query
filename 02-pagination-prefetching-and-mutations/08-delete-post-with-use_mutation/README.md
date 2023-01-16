@@ -1,54 +1,31 @@
-import { useMutation, useQuery } from "react-query";
+# Delete Post with useMutation
 
-async function fetchComments(postId) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/comments?postId=${postId}`
-  );
-  return response.json();
-}
-
-async function deletePost(postId) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/postId/${postId}`,
-    { method: "DELETE" }
-  );
-  return response.json();
-}
-
-async function updatePost(postId) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/postId/${postId}`,
-    { method: "PATCH", data: { title: "REACT QUERY FOREVER!!!!" } }
-  );
-  return response.json();
-}
-
+```js
 export function PostDetail({ post }) {
-  // replace with useQuery
   const { data, isLoading, error, isError } = useQuery(
     ["comments", post.id],
     () => fetchComments(post.id)
   );
 
+  /**
+   * lecture에서는 위의 useQuery에 이미 destuctured를 사용하여
+   * 복잡해지는 것을 피하고자 constant variable로 정의했는데 아래와 같이도
+   * 정의가 가능하다
+   *
+   * const { mutate: deleteMutate } = useMutation((postId) => deletePost(postId))
+   *
+   * 하지만 useMutation을 직접 destructure 해본 결과, isLoading, isError 등
+   * 더 많은 variables과 objects를 rename 해야했고 lecture에서 deleteMutation을
+   * 사용하는것이 더 활용성이 높았다.
+   **/
   const deleteMutation = useMutation((postId) => deletePost(postId));
-
-  if (isLoading) {
-    return <h3>Comments are loading...</h3>;
-  }
-
-  if (isError) {
-    return (
-      <>
-        <h3>Oops, something went wrong</h3>
-        <p>{error.toString()}</p>
-      </>
-    );
-  }
 
   return (
     <>
       <h3 style={{ color: "blue" }}>{post.title}</h3>
+      {/* add mutate function here, you can also pass post ID */}
       <button onClick={() => deleteMutation.mutate(post.id)}>Delete</button>
+      {/* Examples of state of mutations */}
       {deleteMutation.isError && (
         <p style={{ color: "red" }}>Error deleting the post</p>
       )}
@@ -68,4 +45,5 @@ export function PostDetail({ post }) {
       ))}
     </>
   );
-}
+
+```
