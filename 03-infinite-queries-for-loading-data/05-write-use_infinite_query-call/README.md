@@ -1,3 +1,8 @@
+# 05. Write useInfiniteQuery Call
+
+## Code Exercise
+
+```js
 import InfiniteScroll from "react-infinite-scroller";
 import { useInfiniteQuery } from "react-query";
 import { Person } from "./Person";
@@ -20,3 +25,4 @@ export function InfinitePeople() {
 
   return <InfiniteScroll />;
 }
+```
