@@ -1,3 +1,8 @@
+# 08. Code Quiz! Infinite Species
+
+## Quiz Solution
+
+```js
 import InfiniteScroll from "react-infinite-scroller";
 import { useInfiniteQuery } from "react-query";
 import { Species } from "./Species";
@@ -52,3 +57,4 @@ export function InfiniteSpecies() {
     </>
   );
 }
+```
