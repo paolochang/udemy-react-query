@@ -1,4 +1,4 @@
-# 03. Lazy Days Spa App Code Orientation
+# 04. Lazy Days Spa App Code Orientation
 
 ## Client Code Structure
 
