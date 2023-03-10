@@ -1,4 +1,4 @@
-# 04. Install and set up React Query
+# 06. Install and set up React Query
 
 ## Install React Query
 
